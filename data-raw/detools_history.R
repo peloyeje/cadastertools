@@ -1,0 +1,7 @@
+devtools::use_data_raw()
+devtools::use_package("banR")
+devtools::use_package("dplyr")
+devtools::use_package("assertthat")
+devtools::use_package("geojsonio")
+devtools::use_package("stringr")
+devtools::use_package("sp")
