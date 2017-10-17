@@ -15,5 +15,6 @@ Imports: banR,
     assertthat,
     geojsonio,
     stringr,
-    rgeos
+    rgeos,
+    methods
 RoxygenNote: 6.0.1
