@@ -12,7 +12,7 @@
 #' \dontrun{
 #' select_polygone(12.05, 14.215, my_data)
 #' }
-select_polygone <- function (long, lat, sp_data){
+select_polygone <- function (sp_data, long, lat){
   assertthat::assert_that(class(sp_data) == "SpatialPolygonsDataFrame", msg = "function only supports SpatialPolygonsDataFrame as input")
 
   point <- sp::SpatialPoints(cbind(long, lat),

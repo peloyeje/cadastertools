@@ -4,14 +4,14 @@
 \alias{select_polygone}
 \title{selects the polygon whoch contains the lattitude and the lattitude specified in a SpatialPolygoneDataFrame}
 \usage{
-select_polygone(long, lat, sp_data)
+select_polygone(sp_data, long, lat)
 }
 \arguments{
+\item{sp_data}{the SpatialPolygoneDataFrame}
+
 \item{long}{the longitude}
 
 \item{lat}{the latitude}
-
-\item{sp_data}{the SpatialPolygoneDataFrame}
 }
 \description{
 selects the polygon whoch contains the lattitude and the lattitude specified in a SpatialPolygoneDataFrame
