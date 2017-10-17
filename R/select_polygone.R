@@ -7,6 +7,7 @@
 #' @return
 #' @export
 #' @import sp
+#' @importFrom rgeos gDistance
 #'
 #' @examples
 #' \dontrun{
@@ -20,5 +21,18 @@ select_polygone <- function (sp_data, long, lat){
 
   house_index <- point %over% sp::SpatialPolygons( sp_data@polygons,
                                                    proj4string = sp::CRS(sp::proj4string(sp_data)))
-  return( sp_data[house_index,])
+    if (is.na(house_index))
+    {
+      perfectly_in = FALSE
+
+      pDist <- vector()
+      for(j in 1:dim(sp_data)[1]) {
+          suppressWarnings(
+          pDist <- append(pDist, rgeos::gDistance(point,sp_data[j,])))
+      }
+      house_index <- which.min(pDist)
+    }else {
+      perfectly_in = TRUE
+    }
+  return(list(perfectly_in, sp_data[house_index,]))
 }
