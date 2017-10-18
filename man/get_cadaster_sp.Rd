@@ -2,24 +2,23 @@
 % Please edit documentation in R/get_cadaster_sp.R
 \name{get_cadaster_sp}
 \alias{get_cadaster_sp}
-\title{Get cadaster SP}
+\title{Get cadaster SP (DEPRECATED)}
 \usage{
-get_cadaster_sp(city_code, cadaster_type = "batiments")
+get_cadaster_sp(city_code, layer = "batiments")
 }
 \arguments{
-\item{city_code}{code of the desired city}
+\item{city_code}{A city code}
 
-\item{cadaster_type}{type of cadaster to extract}
+\item{layer}{A layer}
 }
 \value{
-sp::SpatialPolygonsDataFrame
+A SP dataframe
 }
 \description{
-Downloads the cadaster GeoJSON file associated with a city code and a data type (parcelles, etc.)
-Returns a SP dataframe containing the geographic data
+Wrapper around download_cadaster and json_to_sf functions
 }
 \examples{
 \dontrun{
-get_cadaster_sp(75001, cadaster_type = "parcelles")
+get_cadaster_sp(75001, "batiments")
 }
 }
