@@ -2,15 +2,18 @@
 % Please edit documentation in R/get_adress_data.R
 \name{get_adress_data}
 \alias{get_adress_data}
-\title{gets detailed dataframe of the adresses that match a query adress}
+\title{Get address data}
 \usage{
 get_adress_data(query_adress)
 }
 \arguments{
-\item{query_adress}{adresss to query}
+\item{query_adress}{address to query}
+}
+\value{
+A dataframe
 }
 \description{
-gets detailed dataframe of the adresses that match a query adress
+Retrieves add addresses (+ useful info) that match the address query
 }
 \examples{
 \dontrun{

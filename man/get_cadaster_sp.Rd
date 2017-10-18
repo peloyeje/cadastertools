@@ -2,20 +2,24 @@
 % Please edit documentation in R/get_cadaster_sp.R
 \name{get_cadaster_sp}
 \alias{get_cadaster_sp}
-\title{returns sp::PolygonesDataFrame with all the infos on the cadaster type of a "commune"}
+\title{Get cadaster SP}
 \usage{
-get_cadaster_sp(communal_code, cadaster_type = "batiments")
+get_cadaster_sp(city_code, cadaster_type = "batiments")
 }
 \arguments{
-\item{communal_code}{code of the desired city}
+\item{city_code}{code of the desired city}
 
 \item{cadaster_type}{type of cadaster to extract}
 }
+\value{
+sp::SpatialPolygonsDataFrame
+}
 \description{
-returns sp::PolygonesDataFrame with all the infos on the cadaster type of a "commune"
+Downloads the cadaster GeoJSON file associated with a city code and a data type (parcelles, etc.)
+Returns a SP dataframe containing the geographic data
 }
 \examples{
 \dontrun{
-get_cadaster_sp(75116, cadaster_type = "parcelles")
+get_cadaster_sp(75001, cadaster_type = "parcelles")
 }
 }

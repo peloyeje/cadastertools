@@ -5,14 +5,20 @@
 \title{get_feuille_id
 Fonction qui donne la liste des numéros de feuilles pour un SpatialPolygonDataframe construit avec le cadastre}
 \usage{
-get_feuille_id(polygon, polygon_df)
+get_feuille_id(polygon)
 }
 \arguments{
-\item{polygon}{: SpatialPolygoneDataFrame, output de get_cadaster_sp (cadaster_type = "parcelles")}
-
-\item{polygon_df}{: polygone spécifique, output de la fonction select_polygon}
+\item{polygon}{: SpatialPolygoneDataFrame, output de get_cadaster_sp (cadaster_type = "feuilles")}
+}
+\value{
+The "feuille" number
 }
 \description{
 get_feuille_id
 Fonction qui donne la liste des numéros de feuilles pour un SpatialPolygonDataframe construit avec le cadastre
+}
+\examples{
+\dontrun{
+get_feuille_id(polygon)
+}
 }
