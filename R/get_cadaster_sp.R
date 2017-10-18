@@ -9,6 +9,7 @@
 #' @import dplyr
 #' @import geojsonio
 #' @import stringr
+#' @importFrom glue glue
 #'
 #' @examples
 #' \dontrun{
@@ -19,16 +20,8 @@ get_cadaster_sp <- function (communal_code, cadaster_type = "batiments"){
                           msg = "please enter valid cadaster_type (\"parcelles\", \"feuilles\", \"sections\", \"communes\", \"batiments\")")
 
   communal_code <- as.character(communal_code)
-  data_url <- paste("https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/geojson/communes/",
-                    stringr::str_extract(communal_code, "[0-9]{2}"),
-                    "/",
-                    communal_code,
-                    "/cadastre-",
-                    communal_code,
-                    "-",
-                    cadaster_type,
-                    ".json.gz",
-                    sep = "")
+  region_code <- stringr::str_extract(communal_code, "[0-9]{2}")
+  data_url <- glue::glue("https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/geojson/communes/{region_code}/{communal_code}/cadastre-{communal_code}-{cadaster_type}.json.gz")
 
   temp_dir <- tempdir()
   temp_file_name <- file.path(temp_dir, "out.json")
