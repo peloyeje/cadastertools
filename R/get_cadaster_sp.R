@@ -1,20 +1,24 @@
-#' returns sp::PolygonesDataFrame with all the infos on the cadaster type of a "commune"
+#' Get cadaster SP
+#'
+#' Downloads the cadaster GeoJSON file associated with a city code and a data type (parcelles, etc.)
+#' Returns a SP dataframe containing the geographic data
 #'
 #' @param citycode code of the desired city
 #' @param cadaster_type type of cadaster to extract
 #'
-#' @return
-#' @export
+#' @return sp::SpatialPolygonsDataFrame
+#'
 #' @import assertthat
 #' @import dplyr
 #' @import geojson
 #' @import sp
 #' @importFrom glue glue
 #' @importFrom R.utils gunzip
+#' @export
 #'
 #' @examples
 #' \dontrun{
-#' get_cadaster_sp(75116, cadaster_type = "parcelles")
+#' get_cadaster_sp(75001, cadaster_type = "parcelles")
 #' }
 get_cadaster_sp <- function(city_code, cadaster_type = "batiments") {
   # Base variables
