@@ -1,5 +1,5 @@
 #' get_feuille_id
-#' Fonction qui donne la liste des numéros de feuilles pour un SpatialPolygonDataframe construit avec le cadastre
+#' Fonction qui donne le numero de feuille <- pas encore commit ce commentaire !
 #'
 #' @param polygon : SpatialPolygoneDataFrame, output de get_cadaster_sp (cadaster_type = "feuilles")
 #'
