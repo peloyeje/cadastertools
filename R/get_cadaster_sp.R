@@ -1,34 +1,70 @@
-#' returns sp::PolygonesDataFrame with all the infos on the cadaster type of a "commune"
+#' Get cadaster SP
 #'
-#' @param communal_code code of the desired city
+#' Downloads the cadaster GeoJSON file associated with a city code and a data type (parcelles, etc.)
+#' Returns a SP dataframe containing the geographic data
+#'
+#' @param citycode code of the desired city
 #' @param cadaster_type type of cadaster to extract
 #'
-#' @return
-#' @export
+#' @return sp::SpatialPolygonsDataFrame
+#'
 #' @import assertthat
 #' @import dplyr
-#' @import geojsonio
-#' @import stringr
+#' @import geojson
+#' @import sp
 #' @importFrom glue glue
+#' @importFrom R.utils gunzip
+#' @export
 #'
 #' @examples
 #' \dontrun{
-#' get_cadaster_sp(75116, cadaster_type = "parcelles")
+#' get_cadaster_sp(75001, cadaster_type = "parcelles")
 #' }
-get_cadaster_sp <- function (communal_code, cadaster_type = "batiments"){
-  assertthat::assert_that(cadaster_type %in% c("parcelles", "feuilles", "sections", "communes", "batiments"),
-                          msg = "please enter valid cadaster_type (\"parcelles\", \"feuilles\", \"sections\", \"communes\", \"batiments\")")
+get_cadaster_sp <- function(city_code, cadaster_type = "batiments") {
+  # Base variables
+  available_types <- c("parcelles", "feuilles", "sections", "communes", "batiments")
+  cadaster_base_url <- "https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/geojson"
+  gzip_extension <- ".gz"
 
-  communal_code <- as.character(communal_code)
-  region_code <- stringr::str_extract(communal_code, "[0-9]{2}")
-  data_url <- glue::glue("https://cadastre.data.gouv.fr/data/etalab-cadastre/latest/geojson/communes/{region_code}/{communal_code}/cadastre-{communal_code}-{cadaster_type}.json.gz")
+  # Validation
+  city_code <- as.character(city_code)
 
-  temp_dir <- tempdir()
-  temp_file_name <- file.path(temp_dir, "out.json")
+  assertthat::assert_that(
+    grepl("^[0-9]{5}$", city_code),
+    msg = "Please provide a valid city code"
+  )
+  assertthat::assert_that(
+    cadaster_type %in% available_types,
+    msg = glue::glue("Please enter valid cadaster type : { glue::collapse(available_types, sep = \", \") }")
+  )
 
-  write(readLines(gzcon(url(data_url)), warn = FALSE), file = temp_file_name)
+  # Build the filename of the cadaster
+  cadaster_filename <- glue::glue("cadastre-{city_code}-{cadaster_type}.json")
+  cadaster_filepath <- file.path(tempdir(), cadaster_filename)
 
-  data <- geojsonio::geojson_read(temp_file_name, what = "sp")
+  if (!file.exists(cadaster_filepath)) {
+    tmp <- tempfile()
+    cadaster_url <- glue::glue(
+      "{cadaster_base_url}/communes/{region_code}/{city_code}/{cadaster_filename}{gzip_extension}",
+      region_code = substring(city_code, 0, 2)
+    )
+    download.file(
+      url = cadaster_url,
+      destfile = tmp,
+      method = "auto"
+    )
+    R.utils::gunzip(
+      filename = tmp,
+      destname = cadaster_filepath,
+      remove = TRUE
+    )
+  }
 
-  return(data)
+  return(
+    geojsonio::geojson_read(
+      cadaster_filepath,
+      what = "sp",
+      p4s = "+proj=merc +lat_ts=48.84 +units=m"
+    )
+  )
 }
