@@ -18,5 +18,6 @@ Imports: banR,
     rgeos,
     methods,
     glue,
-    R.utils
+    R.utils,
+    sf
 RoxygenNote: 6.0.1

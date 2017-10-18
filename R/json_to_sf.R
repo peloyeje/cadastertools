@@ -7,7 +7,8 @@
 #' @return A sp::SpatialPolygonsDataFrame
 #'
 #' @import assertthat
-#' @import geojsonio
+#' @import sf
+#' @importFrom magrittr %>%
 #' @export
 #'
 #' @examples
@@ -16,7 +17,7 @@
 #' }
 json_to_sf <- function(json_file) {
   # We define some base variables
-  crs <- "+proj=merc +lat_ts=48.84 +units=m"
+  epsg_code <- 2154
 
   # We validate the file
   assertthat::assert_that(
@@ -29,10 +30,8 @@ json_to_sf <- function(json_file) {
   )
 
   return(
-    geojsonio::geojson_read(
-      json_file,
-      what = "sp",
-      p4s = crs
-    )
+    json_file %>%
+      sf::read_sf() %>%
+      sf::st_transform(epsg_code)
   )
 }
