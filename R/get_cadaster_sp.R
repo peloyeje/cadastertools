@@ -3,17 +3,18 @@
 #' Downloads the cadaster GeoJSON file associated with a city code and a data type (parcelles, etc.)
 #' Returns a SP dataframe containing the geographic data
 #'
-#' @param citycode code of the desired city
+#' @param city_code code of the desired city
 #' @param cadaster_type type of cadaster to extract
 #'
 #' @return sp::SpatialPolygonsDataFrame
 #'
 #' @import assertthat
 #' @import dplyr
-#' @import geojson
+#' @import geojsonio
 #' @import sp
 #' @importFrom glue glue
 #' @importFrom R.utils gunzip
+#' @importFrom utils download.file
 #' @export
 #'
 #' @examples
@@ -48,7 +49,7 @@ get_cadaster_sp <- function(city_code, cadaster_type = "batiments") {
       "{cadaster_base_url}/communes/{region_code}/{city_code}/{cadaster_filename}{gzip_extension}",
       region_code = substring(city_code, 0, 2)
     )
-    download.file(
+    utils::download.file(
       url = cadaster_url,
       destfile = tmp,
       method = "auto"

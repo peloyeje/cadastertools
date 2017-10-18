@@ -2,7 +2,7 @@
 % Please edit documentation in R/select_polygone.R
 \name{select_polygone}
 \alias{select_polygone}
-\title{selects the polygon whoch contains the lattitude and the lattitude specified in a SpatialPolygoneDataFrame}
+\title{Select polygon}
 \usage{
 select_polygone(sp_data, long, lat)
 }
@@ -13,8 +13,11 @@ select_polygone(sp_data, long, lat)
 
 \item{lat}{the latitude}
 }
+\value{
+A dataframe containing the matched polygon
+}
 \description{
-selects the polygon whoch contains the lattitude and the lattitude specified in a SpatialPolygoneDataFrame
+selects the polygon which contains the latitude and the latitude specified in a SpatialPolygoneDataFrame
 }
 \examples{
 \dontrun{

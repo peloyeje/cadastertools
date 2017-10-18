@@ -1,10 +1,12 @@
-#' selects the polygon whoch contains the lattitude and the lattitude specified in a SpatialPolygoneDataFrame
+#' Select polygon
+#'
+#' selects the polygon which contains the latitude and the latitude specified in a SpatialPolygoneDataFrame
 #'
 #' @param long the longitude
 #' @param lat the latitude
 #' @param sp_data the SpatialPolygoneDataFrame
 #'
-#' @return
+#' @return A dataframe containing the matched polygon
 #' @export
 #' @import sp
 #' @importFrom rgeos gDistance

@@ -7,9 +7,9 @@
 get_cadaster_sp(city_code, cadaster_type = "batiments")
 }
 \arguments{
-\item{cadaster_type}{type of cadaster to extract}
+\item{city_code}{code of the desired city}
 
-\item{citycode}{code of the desired city}
+\item{cadaster_type}{type of cadaster to extract}
 }
 \value{
 sp::SpatialPolygonsDataFrame

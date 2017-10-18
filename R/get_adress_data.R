@@ -1,8 +1,10 @@
-#' gets detailed dataframe of the adresses that match a query adress
+#' Get address data
 #'
-#' @param query_adress adresss to query
+#' Retrieves add addresses (+ useful info) that match the address query
 #'
-#' @return
+#' @param query_adress address to query
+#'
+#' @return A dataframe
 #' @export
 #' @import banR
 #'

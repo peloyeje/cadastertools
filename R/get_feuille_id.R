@@ -3,10 +3,13 @@
 #'
 #' @param polygon : SpatialPolygoneDataFrame, output de get_cadaster_sp (cadaster_type = "feuilles")
 #'
-#' @return
+#' @return The "feuille" number
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' get_feuille_id(polygon)
+#' }
 get_feuille_id <- function(polygon){
   numero_feuille <- polygon[[2]]@data["id"]
   return(numero_feuille)
