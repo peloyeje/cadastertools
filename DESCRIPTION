@@ -19,5 +19,6 @@ Imports: banR,
     methods,
     glue,
     R.utils,
-    sf
+    sf,
+    magrittr
 RoxygenNote: 6.0.1

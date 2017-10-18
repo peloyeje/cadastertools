@@ -17,7 +17,7 @@
 #' }
 json_to_sf <- function(json_file) {
   # We define some base variables
-  epsg_code <- 2154
+  epsg_code <- 4326
 
   # We validate the file
   assertthat::assert_that(
