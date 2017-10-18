@@ -35,7 +35,7 @@ download_cadaster <- function(city_code, layer = "batiments") {
   )
 
   # We build the filename of the cadaster and its path
-  cadaster_filename <- glue::glue("cadastre-{city_code}-{cadaster_type}.json")
+  cadaster_filename <- glue::glue("cadastre-{city_code}-{layer}.json")
   cadaster_filepath <- file.path(tempdir(), cadaster_filename)
 
   if (!file.exists(cadaster_filepath)) {
