@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @import assertthat
-#' @import glue
+#' @importFrom  glue glue
 #' @importFrom utils download.file
 #' @importFrom R.utils gunzip
 #'

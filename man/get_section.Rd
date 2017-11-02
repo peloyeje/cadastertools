@@ -9,6 +9,16 @@ get_section(polygon)
 \arguments{
 \item{polygon}{: SpatialPolygoneDataFrame de l'adresse (cadaster_type = "sections" quand on get_cadaster_sp)}
 }
+\value{
+section of the town of a polygon
+}
 \description{
 get_section
+}
+\examples{
+\dontrun{
+sections_df <- cadastertools::get_cadaster_sp(adress_data$citycode, layer = "sections")
+section <- get_nearest_polygon(section_df, adress_data$longitude, adress_data$latitude)
+section_name <- get_section(section)
+}
 }

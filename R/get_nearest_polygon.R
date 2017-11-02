@@ -2,11 +2,11 @@
 #'
 #'
 #'
-#' @param sf_dataframe
-#' @param lat
-#' @param long
+#' @param sf_dataframe dataframe containing polygons to choose from
+#' @param lat latitude of the point
+#' @param long longitude of the point
 #'
-#' @return
+#' @return sf_dataframe with the closest polygon
 #' @export
 #'
 #' @import sf
@@ -14,6 +14,9 @@
 #' @importFrom magrittr %>%
 #'
 #' @examples
+#' \dontrun{
+#' get_nearest_polygon(town, adress_data$longitude, adress_data$latitude)
+#' }
 get_nearest_polygon <- function(sf_dataframe, long, lat) {
   # We define some base variables
   epsg_codes <- list(
