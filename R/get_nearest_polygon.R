@@ -30,12 +30,14 @@ get_nearest_polygon <- function(sf_dataframe, long, lat) {
     sf_dataframe %>%
       sf::st_transform(crs = epsg_codes$proj) %>%
       dplyr::mutate(
-        distance = sf::st_distance(
-          sf::st_transform(point, crs = epsg_codes$proj),
+        distance = as.numeric( sf::st_distance(
+         sf::st_sfc(point, crs = epsg_codes$proj),
           geometry
-        )
+        ))
       ) %>%
-      sf::st_transform(crs = epsg_codes$geo)
+      sf::st_transform(crs = epsg_codes$geo) %>%
+      dplyr::arrange(distance)  %>%
+      dplyr::top_n(-1)
   )
   # filter_list <- sf::(sf_dataframe, point)
   #
