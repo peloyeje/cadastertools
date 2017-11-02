@@ -5,10 +5,10 @@
 \title{get_feuille_id
 Fonction qui donne le numero de feuille <- pas encore commit ce commentaire !}
 \usage{
-get_feuille_id(polygon)
+get_feuille_id(poly)
 }
 \arguments{
-\item{polygon}{: SpatialPolygoneDataFrame, output de get_cadaster_sp (cadaster_type = "feuilles")}
+\item{poly}{: unique sf polygon, output de slelect_polygon(get_cadaster_sp(cadaster_type = "feuilles"), long, lat)}
 }
 \value{
 The "feuille" number
