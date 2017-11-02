@@ -29,8 +29,8 @@ get_nearest_polygon <- function(sf_dataframe, long, lat) {
   point <- sf::st_point(c(long, lat)) %>% sf::st_sfc(crs=epsg_codes$geo)
 
   # Filter df by contain test
-  return(
-    sf_dataframe %>%
+
+    sf_dataframe <- sf_dataframe %>%
       sf::st_transform(crs = epsg_codes$proj) %>%
       dplyr::mutate(
         distance = as.numeric( sf::st_distance(
@@ -39,9 +39,8 @@ get_nearest_polygon <- function(sf_dataframe, long, lat) {
         ))
       ) %>%
       sf::st_transform(crs = epsg_codes$geo) %>%
-      dplyr::arrange(distance)  %>%
-      dplyr::top_n(-1)
-  )
+      dplyr::arrange(distance)
+  return(sf_dataframe[1,])
   # filter_list <- sf::(sf_dataframe, point)
   #
   # return(sf_dataframe[(lengths(filter_list) > 0), ])

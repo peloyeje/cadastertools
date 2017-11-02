@@ -9,6 +9,7 @@
 #'
 #' @import assertthat
 #' @importFrom  glue glue
+#' @importFrom  glue collapse
 #' @importFrom utils download.file
 #' @importFrom R.utils gunzip
 #'
