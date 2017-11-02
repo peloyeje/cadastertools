@@ -23,7 +23,7 @@ get_nearest_polygon <- function(sf_dataframe, long, lat) {
   threshold <- 0.0001
 
   # We create the address geometry
-  point <- sf::st_point(c(long, lat))
+  point <- sf::st_point(c(long, lat)) %>% sf::st_sfc(crs=epsg_codes$geo)
 
   # Filter df by contain test
   return(
@@ -31,7 +31,7 @@ get_nearest_polygon <- function(sf_dataframe, long, lat) {
       sf::st_transform(crs = epsg_codes$proj) %>%
       dplyr::mutate(
         distance = as.numeric( sf::st_distance(
-         sf::st_sfc(point, crs = epsg_codes$proj),
+         sf::st_transform(point, crs = epsg_codes$proj),
           geometry
         ))
       ) %>%
