@@ -2,13 +2,13 @@
 % Please edit documentation in R/get_nearest_polygon.R
 \name{get_nearest_polygon}
 \alias{get_nearest_polygon}
-\title{Title}
+\title{Get nearest polygon}
 \usage{
-get_nearest_polygon(sf_dataframe, lat, long)
+get_nearest_polygon(sf_dataframe, long, lat)
 }
 \arguments{
 \item{long}{}
 }
 \description{
-Title
+Get nearest polygon
 }
