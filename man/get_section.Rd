@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_section.R
 \name{get_section}
 \alias{get_section}
-\title{get_section}
+\title{Get section}
 \usage{
 get_section(polygon)
 }
@@ -13,7 +13,7 @@ get_section(polygon)
 section of the town of a polygon
 }
 \description{
-get_section
+Get section
 }
 \examples{
 \dontrun{

@@ -1,4 +1,5 @@
-#' get_parcelle_number
+#' Get parcelle number
+#'
 #' Fonction qui donne le numero de la parcelle
 #'
 #' @param poly : sf_data frame with only one polygone

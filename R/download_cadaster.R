@@ -1,6 +1,7 @@
 #' Download cadaster
 #'
 #' Downloads the json file containing the geo info according to the provided city_code and layer
+#'
 #' @param city_code A city code (string/number)
 #' @param layer The layer we want to get (string)
 #'
@@ -8,8 +9,8 @@
 #' @export
 #'
 #' @import assertthat
-#' @importFrom  glue glue
-#' @importFrom  glue collapse
+#' @importFrom glue glue
+#' @importFrom glue collapse
 #' @importFrom utils download.file
 #' @importFrom R.utils gunzip
 #'

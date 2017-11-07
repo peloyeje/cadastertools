@@ -1,7 +1,5 @@
 #' Get nearest polygon
 #'
-#'
-#'
 #' @param sf_dataframe dataframe containing polygons to choose from
 #' @param lat latitude of the point
 #' @param long longitude of the point
@@ -10,7 +8,8 @@
 #' @export
 #'
 #' @import sf
-#' @import dplyr
+#' @importFrom dplyr mutate
+#' @importFrom dplyr arrange
 #' @importFrom magrittr %>%
 #'
 #' @examples
@@ -30,18 +29,16 @@ get_nearest_polygon <- function(sf_dataframe, long, lat) {
 
   # Filter df by contain test
 
-    sf_dataframe <- sf_dataframe %>%
-      sf::st_transform(crs = epsg_codes$proj) %>%
-      dplyr::mutate(
-        distance = as.numeric( sf::st_distance(
-         sf::st_transform(point, crs = epsg_codes$proj),
-          geometry
-        ))
-      ) %>%
-      sf::st_transform(crs = epsg_codes$geo) %>%
-      dplyr::arrange(distance)
+  sf_dataframe <- sf_dataframe %>%
+    sf::st_transform(crs = epsg_codes$proj) %>%
+    dplyr::mutate(
+      distance = as.numeric( sf::st_distance(
+        sf::st_transform(point, crs = epsg_codes$proj),
+        geometry
+      ))
+    ) %>%
+    sf::st_transform(crs = epsg_codes$geo) %>%
+    dplyr::arrange(distance)
+
   return(sf_dataframe[1,])
-  # filter_list <- sf::(sf_dataframe, point)
-  #
-  # return(sf_dataframe[(lengths(filter_list) > 0), ])
 }

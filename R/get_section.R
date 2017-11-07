@@ -1,4 +1,4 @@
-#' get_section
+#' Get section
 #'
 #' @param polygon : SpatialPolygoneDataFrame de l'adresse (cadaster_type = "sections" quand on get_cadaster_sp)
 #'

@@ -2,8 +2,7 @@
 % Please edit documentation in R/get_parcelle_number.R
 \name{get_parcelle_number}
 \alias{get_parcelle_number}
-\title{get_parcelle_number
-Fonction qui donne le numero de la parcelle}
+\title{Get parcelle number}
 \usage{
 get_parcelle_number(poly)
 }
@@ -14,7 +13,6 @@ get_parcelle_number(poly)
 The polygon number
 }
 \description{
-get_parcelle_number
 Fonction qui donne le numero de la parcelle
 }
 \examples{

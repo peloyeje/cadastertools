@@ -10,13 +10,8 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: banR,
-    sp,
     dplyr,
     assertthat,
-    geojsonio,
-    stringr,
-    rgeos,
-    methods,
     glue,
     R.utils,
     sf,

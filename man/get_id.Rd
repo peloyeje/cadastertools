@@ -2,20 +2,18 @@
 % Please edit documentation in R/get_id.R
 \name{get_id}
 \alias{get_id}
-\title{get_id
-Fonction qui donne le numero de feuille <- pas encore commit ce commentaire !}
+\title{Get ID}
 \usage{
 get_id(poly)
 }
 \arguments{
-\item{poly}{: sf_data frame with only one polygone}
+\item{poly}{sf_data frame with only one polygone}
 }
 \value{
 The polygon id number
 }
 \description{
-get_id
-Fonction qui donne le numero de feuille <- pas encore commit ce commentaire !
+Fonction qui donne le numero de feuille
 }
 \examples{
 \dontrun{
