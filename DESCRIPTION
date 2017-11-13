@@ -8,7 +8,7 @@ Maintainer: Régis Bouyoux <regis.bouyoux@hec.edu>,
     Jean-Eudes Peloye <jean-eudes.peloye@hec.edu>, 
     Antoine Redier <antoine.redier2@gmail.com>
 Description: cadastertools provides functions to handle geo data imported from the French cadastre open databases.
-Depends: R (>= 3.3.0)
+Depends: R (>= 3.4.2)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
