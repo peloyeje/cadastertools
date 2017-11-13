@@ -12,8 +12,6 @@ packages used :
 - assertthat
 - glue
 - R.utils
-- sf
-- 
 
 authors : 
 - Régis Bouyoux
