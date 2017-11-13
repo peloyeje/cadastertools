@@ -73,7 +73,7 @@ house_parcelle_poly <- cadastertools::get_parent_polygon(house_poly, town_data_p
 Computes the area of a list of Single Feature geometries
 
 ```{r}
-area <- get_area(house_poly)
+area <- cadastertools::get_area(house_poly)
 ```
 
 
