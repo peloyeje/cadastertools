@@ -1,10 +1,13 @@
 Package: cadastertools
 Title: Package that provides with functions to query and process French cadastre databases
-Version: 0.0.0.9000
-Author: Antoine Redier
-Maintainer: Antoine Redier <antoine.redier2@gmail.com>
-Description: cadastertools provides functions to handle sp data imported from the French cadastre open databases.
-    get_adress_data queries the ban databases and looks for the matches with a given adress.
+Version: 1.0.0
+Author: Régis Bouyoux, 
+    Jean-Eudes Peloye, 
+    Antoine Redier
+Maintainer: Régis Bouyoux <regis.bouyoux@hec.edu>, 
+    Jean-Eudes Peloye <jean-eudes.peloye@hec.edu>, 
+    Antoine Redier <antoine.redier2@gmail.com>
+Description: cadastertools provides functions to handle geo data imported from the French cadastre open databases.
 Depends: R (>= 3.3.0)
 License: GPL-3
 Encoding: UTF-8
