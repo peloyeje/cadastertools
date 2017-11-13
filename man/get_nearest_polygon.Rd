@@ -7,20 +7,20 @@
 get_nearest_polygon(sf_dataframe, long, lat)
 }
 \arguments{
-\item{sf_dataframe}{dataframe containing polygons to choose from}
+\item{sf_dataframe}{A dataframe containing polygons to choose from}
 
-\item{long}{longitude of the point}
+\item{long}{The longitude of the point}
 
-\item{lat}{latitude of the point}
+\item{lat}{The latitude of the point}
 }
 \value{
-sf_dataframe with the closest polygon
+A 1*N SF dataframe containing the closest polygon
 }
 \description{
 Get nearest polygon
 }
 \examples{
 \dontrun{
-get_nearest_polygon(town, adress_data$longitude, adress_data$latitude)
+polygon <- get_nearest_polygon(town, adress_data$longitude, adress_data$latitude)
 }
 }

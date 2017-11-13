@@ -2,18 +2,18 @@
 % Please edit documentation in R/polygon_from_list.R
 \name{polygon_from_list}
 \alias{polygon_from_list}
-\title{polygon_from_list : create polygon from coordinate list}
+\title{Polygon from list}
 \usage{
 polygon_from_list(list_of_points)
 }
 \arguments{
-\item{point_list}{coordinate list}
+\item{list_of_points}{List of point vectors}
 }
 \value{
-sfc polygon
+a sfc
 }
 \description{
-polygon_from_list : create polygon from coordinate list
+Creates polygon from coordinate list
 }
 \examples{
 \dontrun{

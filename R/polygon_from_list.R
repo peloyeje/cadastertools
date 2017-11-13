@@ -1,8 +1,10 @@
-#' polygon_from_list : create polygon from coordinate list
+#' Polygon from list
 #'
-#' @param point_list coordinate list
+#' Creates polygon from coordinate list
 #'
-#' @return sfc polygon
+#' @param list_of_points List of point vectors
+#'
+#' @return a sfc
 #' @export
 #' @import sf
 #'

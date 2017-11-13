@@ -10,13 +10,13 @@ json_to_sf(json_file)
 \item{json_file}{A path to the JSON file to parse}
 }
 \value{
-A sp::SpatialPolygonsDataFrame
+A SF dataframe
 }
 \description{
 Parses the provided GeoJSON to a Simple Features dataframe
 }
 \examples{
 \dontrun{
-json_to_sf("../../cadaster-75001.json")
+df <- json_to_sf("../../cadaster-75001.json")
 }
 }

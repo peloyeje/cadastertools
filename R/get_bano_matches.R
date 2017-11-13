@@ -2,7 +2,7 @@
 #'
 #' Retrieves all addresses (+ useful info) that match the address query in the BANO database
 #'
-#' @param address String to query
+#' @param address Address to query
 #'
 #' @return A dataframe containing BANO search results
 #' @export

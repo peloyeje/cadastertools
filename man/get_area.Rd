@@ -7,7 +7,7 @@
 get_area(sf_dataframe)
 }
 \arguments{
-\item{sf_dataframe}{A Single Features dataframe with geometries}
+\item{sf_dataframe}{A SF dataframe with geometries}
 }
 \value{
 A "units" object

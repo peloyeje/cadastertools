@@ -1,10 +1,10 @@
 #' Get nearest polygon
 #'
-#' @param sf_dataframe dataframe containing polygons to choose from
-#' @param lat latitude of the point
-#' @param long longitude of the point
+#' @param sf_dataframe A dataframe containing polygons to choose from
+#' @param lat The latitude of the point
+#' @param long The longitude of the point
 #'
-#' @return sf_dataframe with the closest polygon
+#' @return A 1*N SF dataframe containing the closest polygon
 #' @export
 #'
 #' @import sf
@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' get_nearest_polygon(town, adress_data$longitude, adress_data$latitude)
+#' polygon <- get_nearest_polygon(town, adress_data$longitude, adress_data$latitude)
 #' }
 get_nearest_polygon <- function(sf_dataframe, long, lat) {
   # We define some base variables
@@ -27,17 +27,19 @@ get_nearest_polygon <- function(sf_dataframe, long, lat) {
   # We create the address geometry
   point <- sf::st_point(c(long, lat)) %>% sf::st_sfc(crs=epsg_codes$geo)
 
-  # Filter df by contain test
-
   sf_dataframe <- sf_dataframe %>%
+    # Change CRS to projected
     sf::st_transform(crs = epsg_codes$proj) %>%
+    # Computes distance to point for each polygon
     dplyr::mutate(
       distance = as.numeric( sf::st_distance(
         sf::st_transform(point, crs = epsg_codes$proj),
         geometry
       ))
     ) %>%
+    # Re-change CRS to geo projection
     sf::st_transform(crs = epsg_codes$geo) %>%
+    # Sort by distance ASC
     dplyr::arrange(distance)
 
   return(sf_dataframe[1,])

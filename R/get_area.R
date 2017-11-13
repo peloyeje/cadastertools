@@ -2,7 +2,7 @@
 #'
 #' Computes the area of a list of Single Feature geometries
 #'
-#' @param sf_dataframe A Single Features dataframe with geometries
+#' @param sf_dataframe A SF dataframe with geometries
 #'
 #' @return A "units" object
 #' @export

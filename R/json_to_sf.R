@@ -4,7 +4,7 @@
 #'
 #' @param json_file A path to the JSON file to parse
 #'
-#' @return A sp::SpatialPolygonsDataFrame
+#' @return A SF dataframe
 #'
 #' @import assertthat
 #' @import sf
@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' json_to_sf("../../cadaster-75001.json")
+#' df <- json_to_sf("../../cadaster-75001.json")
 #' }
 json_to_sf <- function(json_file) {
   # We define some base variables

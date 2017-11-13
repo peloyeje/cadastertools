@@ -7,7 +7,7 @@
 get_bano_matches(address)
 }
 \arguments{
-\item{address}{String to query}
+\item{address}{Address to query}
 }
 \value{
 A dataframe containing BANO search results
