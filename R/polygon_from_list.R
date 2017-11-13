@@ -11,14 +11,16 @@
 #' ls <- list(c(long, lat), c(long+ 0.001, lat), c(long+0.001, lat +0.0005))
 #' poly <- polygon_from_list(ls)
 #' }
-polygon_from_list <- function(point_list){
-  epsg <- 4326
-  matrx <- matrix(nrow = length(point_list) +1, ncol = 2)
-  for (i in 1:length(point_list) ){
-    matrx[i,] <- cbind(point_list[[i]][1], point_list[[i]][2])
-  }
-  matrx[dim(matrx)[1],] <- matrx[1,]
+polygon_from_list <- function(list_of_points) {
+  epsg <- 4326 # Geo CRS - WSG 84
+
+  mat <- matrix(
+    c(unlist(list_of_points), list_of_points[[1]]),
+    ncol = 2,
+    byrow = T
+  )
+
   return(
-    sf::st_polygon(list(matrx)) %>% sf::st_sfc(crs = epsg)
+    sf::st_polygon(list(mat)) %>% sf::st_sfc(crs = epsg)
   )
 }

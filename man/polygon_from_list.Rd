@@ -4,7 +4,7 @@
 \alias{polygon_from_list}
 \title{polygon_from_list : create polygon from coordinate list}
 \usage{
-polygon_from_list(point_list)
+polygon_from_list(list_of_points)
 }
 \arguments{
 \item{point_list}{coordinate list}
