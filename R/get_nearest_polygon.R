@@ -1,5 +1,7 @@
 #' Get nearest polygon
 #'
+#' gets the nearest polygon from a long lat point in a given SF dataframe
+#'
 #' @param sf_dataframe A dataframe containing polygons to choose from
 #' @param lat The latitude of the point
 #' @param long The longitude of the point

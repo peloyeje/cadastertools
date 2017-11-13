@@ -17,7 +17,7 @@ get_nearest_polygon(sf_dataframe, long, lat)
 A 1*N SF dataframe containing the closest polygon
 }
 \description{
-Get nearest polygon
+gets the nearest polygon from a long lat point in a given SF dataframe
 }
 \examples{
 \dontrun{
